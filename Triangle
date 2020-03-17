@@ -1,0 +1,40 @@
+function setup() 
+{
+  createCanvas(800,800);
+ 
+}
+
+function draw() 
+{
+   background(255);
+  pascalTriangle(32);
+  
+}
+function pascalTriangle(n)
+{
+  let p = []
+  for(let i=1;i<=n;i++)
+  {
+    for( let j=0;j<i;j++)
+    {
+      let num;
+      if(j==0 || j==i-1)
+      {
+        p.push(1);
+      }
+      else
+      {
+        p.push(p[p.length-i+1]+p[p.length-i]);
+      }
+      if(p[p.length-1] %2==0)
+      {
+        fill(255)
+      }
+      else
+      {
+        fill(0);
+      }
+      ellipse((j-i/2)*size+width/2,i*size+50,size,size)
+    }
+  }
+}
